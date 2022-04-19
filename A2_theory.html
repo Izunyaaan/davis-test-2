@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="DAVIS Test 2 Part A">
+        <meta name="author" content="Faiz 'Izunyan' Sufrikhan">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" async=""
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+            </script>
+        <title>Faiz Answers for DAVIS Test 2 Part A</title>
+        <style>
+            html,
+            body {
+                padding: 0;
+                margin: 0;
+                height: 100vh;
+            }
+
+            body {
+                background-color: black;
+                color: aliceblue;
+                margin-inline: auto;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                box-sizing: border-box;
+                justify-content: space-around;
+            }
+
+            header {
+                width: 100vw;
+                margin-bottom: 1rem;
+            }
+
+            nav {
+                width: 22vw;
+                position: fixed;
+                top: 4rem;
+                left: 0.5vw;
+            }
+
+            article {
+                margin-left: 23vw;
+                width: 75vw;
+            }
+
+            footer {
+                margin-top: 1rem;
+                border-top: 0.4ch solid wheat;
+                width: 100vw;
+                padding: 1rem;
+            }
+
+            fieldset {
+                background-color: whitesmoke;
+                color: black;
+                margin-bottom: 3rem;
+                min-height: 100vh;
+            }
+
+            legend {
+                background-color: aliceblue;
+                outline: 1px solid black;
+            }
+
+            .centered {
+                text-align: center;
+            }
+
+            .references {
+                font-style: italic;
+            }
+
+            nav a {
+                color: whitesmoke;
+                display: block;
+                outline: 1px solid white;
+                padding: 0.3rem;
+                border-left: 0.5ch solid wheat;
+            }
+
+            nav a:hover {
+                background-color: rgba(240, 248, 255, 0.407);
+                color: black;
+                font-weight: bolder;
+            }
+
+            .activeLink {
+
+                background-color: rgba(240, 248, 255, 0.407);
+                color: black;
+                font-weight: bolder;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header class="centered">
+            <h1>Data Analytics and Visualization Concepts (50 Marks)</h1>
+        </header>
+        <nav>
+            <p><a href="#Q1" class="nav">Question 1</a></p>
+            <p><a href="#Q2" class="nav">Question 2</a></p>
+        </nav>
+        <article>
+            <fieldset id="Q1">
+                <legend>1. Describe the 'Bagging' technique. [7 marks]</legend>
+                <p>
+                    Bagging is a type of ensemble learning. Ensemble learning is taking the results of multiple models
+                    and
+                    returns one result based on this collection. Bagging is also known as bootstrap aggregation. It is a
+                    technique that reduces variance in a noisy dataset.
+                </p>
+                <p>
+                    How it works is we create sample sets from the training data. It is typically smaller than the total
+                    length of the training set. The sample sets are created by randomly picking data points from the
+                    training dataset. This process is purely random and the selected data point still remains in the
+                    training dataset. This means that it can be picked and added to the sample set again if the RNG
+                    picks it
+                    again. For example:
+                </p>
+                <p>
+                    Assume the training dataset is {1,2,3,4,5,6,7,8}.<br>
+                    We now want a subset of length 3. We randomly pick one data point from the training data and got 2.
+                    We
+                    randomly pick again and got 7. And we randomly pick again but the rng tells us to pick 2. Thus the
+                    sample is now {2,7,2}.
+                </p>
+                <p>
+                    This technique of randomly picking data points and allowing the same data points to be chosen more
+                    than
+                    once is called <strong>resampling with replacement.</strong> This process of creating bootstrap
+                    sample
+                    sets is where the <em>bootstrap</em> in bootstrap aggregation comes from.
+                </p>
+                <p>
+                    Now that we have multiple sample sets, we can use them to train weak learners such as logistic
+                    regression. Typically we training using the same weak learner. So if we train one sample set with
+                    logistic regression, the other sample sets are also trained using logistic regression.
+                </p>
+                <p>
+                    We now combine the results that we get from the weak learners. This is typically done by averaging.
+                    This
+                    aggregating process is where the <em>aggregation</em> in bootstrap aggregation comes from. This
+                    averaging is how bagging reduces variance in a noisy dataset. And by using purely random datasets,
+                    overfitting is also reduced.
+                </p>
+                <p class="centered">
+                    <img src="https://cdn.corporatefinanceinstitute.com/assets/bagging.png"
+                        alt="Chart illustrating how bagging works" />
+                </p>
+                <p class="centered">
+                    <em>This image illustrates how bagging works.</em>
+                </p>
+                <p class="references">
+                    References:
+                </p>
+                <ul class="references">
+                    <li>Lecture notes</li>
+                    <li><a
+                            href="https://corporatefinanceinstitute.com/resources/knowledge/other/bagging-bootstrap-aggregation/">CFI</a>
+                    </li>
+                    <li><a
+                            href="https://towardsdatascience.com/ensemble-methods-bagging-boosting-and-stacking-c9214a10a205">Rocca
+                            J. (2019)</a></li>
+                    <li><a
+                            href="https://www.ibm.com/cloud/learn/bagging#:~:text=Bagging%2C%20also%20known%20as%20bootstrap,be%20chosen%20more%20than%20once.">IBM</a>
+                    </li>
+                    <li><a href="https://www.youtube.com/watch?v=RtrBtAKwcxQ">codebasics</a></li>
+                </ul>
+
+            </fieldset>
+            <fieldset id="Q2">
+                <legend>2. Describe the 'Adaboost' technique. [7 marks]</legend>
+                AdaBoost, which is short for Adaptive Boosting, is another ensemble learning technique. It is based on
+                the boosting algorithm which is widely used for solving binary classification problems apparently.
+                Boosting was first presented in 1997 by Freund and Schapire.
+            </fieldset>
+            <ol>
+                <li></li>
+                <li></li>
+                <li>Define the following representations:[6 marks]
+                    <ul>
+                        <li>Box plot</li>
+                        <li>Distribution plot</li>
+                    </ul>
+                    What kind of information can they express?
+                </li>
+                <li>Compare and Contrast the following data representation approaches: Maps, Tables and Graphs. [9
+                    marks]
+                </li>
+                <li>Data visualization is a graphical representation that contains the information and the data. Discuss
+                    in
+                    your own words why graphical representation could be more expressive than representing information
+                    using
+                    numbers? Give examples to supports your arguments. [8 marks]</li>
+                <li>D3 stands for Data-Driven-Documents, D3 is a powerful data visualization tool by many. Describe
+                    three
+                    salient features of D3 over traditional graphing tools. [6 marks]</li>
+                <li>Explain ethical issues that may be of concerns when designing visualization e.g., concerns regarding
+                    genders, religions, races, or other dimensions that you can think of (open question). [7 marks]
+                </li>
+            </ol>
+
+        </article>
+        <footer class="centered">
+            <strong>Written By:</strong> Faiz 'Izunyan' Sufrikhan<br>
+            <strong>Written On:</strong> 19<sup>th</sup> April 2022
+        </footer>
+    </body>
+    <script>
+        answers = document.querySelectorAll('fieldset');
+        links = document.querySelectorAll('.nav');
+
+        window.onscroll = () => {
+            let current = ""
+
+            answers.forEach((answer, index) => {
+                const answerTop = answer.offsetTop
+                if (pageYOffset >= answerTop - 20) {
+                    current = index
+                }
+            });
+
+            links.forEach((link, index) => {
+                link.classList.remove("activeLink")
+                if (index == current) {
+                    link.classList.add("activeLink")
+                }
+            });
+        }
+    </script>
+
+</html>
