@@ -109,6 +109,10 @@
                 width: 86%;
                 outline: black 1px solid;
             }
+
+            td {
+                outline: 1px solid black;
+            }
         </style>
     </head>
 
@@ -264,11 +268,178 @@
                     </ul>
                     What kind of information can they express?
                 </legend>
+                <ul>
+                    <li>
+                        <p>
+                            A box plot, also sometimes called box and whisker plots, is a type of plot that is used in
+                            descriptive statistics to show the locality, spread and skewness of a dataset through their
+                            quartiles. The image below shows how they look like:
+                        </p>
+                        <p class="centered">
+                            <img src="https://miro.medium.com/max/1200/1*2c21SkzJMf3frPXPAR_gZA.png"
+                                alt="box plot from google" class="fit" />
+                        </p>
+                        <p>
+                            As we can see, the box covers the inter-quartile range with the whiskers typically extending
+                            to
+                            the min and max values. There is a line in the box which is the median of the data. A well
+                            balanced dataset will have the median in the center of the box and the whisker length be the
+                            same as the box length. The skewness can be seen by how uneven the box and whiskers are.
+                        </p>
+                        <p>
+                            Some variation of box plots are shown below:
+                        </p>
+                        <p class="centered">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Fourboxplots.svg/330px-Fourboxplots.svg.png"
+                                alt="box plot from wikipedia" class="fit" />
+                        </p>
+                        <p>
+                            These better shows the statistical significance of the skews and other descriptive
+                            statistics
+                            properties.
+                        </p>
+                        <p>
+                            In summary, traditionally box plots are used to display a dataset's median, inter-quartile
+                            range, min, max and outliers. These plots expresses a dataset's skewness, locality and
+                            spread. They can also be used to infer the quality of the dataset. More outliers means
+                            either the measuring method has problems or is unsuitable to collect that particular set of
+                            data.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            A distribution plot at first glance might have the same idea as a box plot. However, rather
+                            than just key values such as
+                            the median, mean and IQR, a distribution plot will plot each data point in a single line.
+                            This means we can see the
+                            range and the distribution of the points as the name suggests.
+                        </p>
+                        <p class="centered">
+                            <img src="https://i.stack.imgur.com/BltA6.png" alt="a distribution plot" class="fit" />
+                        </p>
+                        <p class="centered">
+                            <em>A form of distribution plot</em>
+                        </p>
+                        <p>
+                            In Matlab though, they describe distribution plots as "Distribution plots visually assess
+                            the distribution of sample data by comparing the empirical distribution of the data
+                            with the theoretical values expected from a specified distribution. Use distribution plots
+                            in addition to more formal
+                            hypothesis tests to determine whether the sample data comes from a specified distribution"
+                            which effectively means the distribution plot is a 2d chart with data one one axis and the
+                            theoretical value on the other. Combining this with techniques such as binning, using
+                            probabilities and etc, we get different types of charts such as histogram, line and point
+                            charts.
+                        </p>
+                        <p class="centered">
+                            <img src="https://www.mathworks.com/help/examples/stats/win64/NormalProbabilityPlotsExample_01.png"
+                                alt="normal prob dist plot" class="fit" /><br>
+                            <img src="https://www.mathworks.com/help/examples/stats/win64/TestDataForWeibullDistributionUsingProbplotExample_01.png"
+                                alt="another prob dist plot" class="fit" /><br>
+                            <img src="https://seaborn.pydata.org/_images/distributions_41_0.png" alt="dist plots"
+                                class="fit" /><br>
+                            <img src="https://i.stack.imgur.com/UElf1.png" alt="histogram" class="fit" />
+                        </p>
+                        <p>
+                            Distribution plots are best used to express the distribution of data. It can show the
+                            variance between two datasets, we can intuit the skew of the data (data with points evenly
+                            spaced out are balanced), and we can easily see how different datasets compare with each
+                            other (their position along the axis can show magnitude differences, size differences,
+                            variances and etc).
+                        </p>
+                        <div class="references">
+                            <p>References:</p>
+                            <ul>
+                                <li>
+                                    <a
+                                        href="https://www.mathworks.com/help/stats/distribution-plots.html#:~:text=Distribution%20plots%20visually%20assess%20the,expected%20from%20a%20specified%20distribution.">MathWorks</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
             </fieldset>
             <fieldset id="Q4">
                 <legend>4. Compare and Contrast the following data representation approaches: Maps, Tables and Graphs.
                     [9
                     marks]</legend>
+                <p>
+                    Maps are typically used to represent geolocation data. However it is not strictly just for this. In
+                    recent years, maps have also been used to represent big data clusters, network distribution and
+                    connectivity data. Basically, any type of data with spatial properties is best illustrated by maps.
+                </p>
+                <p class="centered">
+                    <img src="https://well-formed-data.net/wp-content/uploads/2013/09/wahlland-2013.jpg"
+                        alt="example of a map" class="fit" />
+                </p>
+                <p class="centered">
+                    <em>This is an example of a map</em>
+                </p>
+                <p>
+                    Tables are a method of illustrating values that have labels. It works by having the labels on the
+                    axis and the values that have those labels at the intersect. The difference between a table and a
+                    graph is that tables are text based representations while graphs are more graphical. I.e. in graphs
+                    the values are represented as a point while in a table, it is a cell.
+                </p>
+                <p>
+                    Tables are commonly 2D, with a header as one axis and a column of properties as the other axis. An
+                    example is table of contents with page number as one axis, and book section as the other axis. The
+                    value of the intersect is the page number.
+                </p>
+                <p class="centered">
+                    <img src="https://web.stanford.edu/class/cs101/table.png" alt="example of table" class="fit" />
+                </p>
+                <p class="centered"><em>This is an example of a table</em></p>
+                <p>Graphs are graphical illustration of data that's meant to show the interrelation between things by
+                    using dots, lines and bars. Usually graphs can be used to extract mathematical relationship between
+                    data. Some may argue that charts like pie charts is also part of graphs but this is debatable. I
+                    will assume here that charts and graphs are interchangable (more or less the same)</p>
+                <p class="centered">
+                    <img src="https://ichef.bbci.co.uk/images/ic/448xn/p09xd6t1.png" alt="a line graph" class="fit" />
+                </p>
+                <p class="centered">
+                    <em>An example of a line graph</em>
+                </p>
+                <p>
+                    <strong>Comparison & Contrast</strong>
+                </p>
+                <p>
+                <table>
+                    <tr>
+                        <td>Tool</td>
+                        <td>Use Case</td>
+                        <td>Prefered Data</td>
+                        <td>Strength</td>
+                    </tr>
+                    <tr>
+                        <td>Maps</td>
+                        <td>Graphically show the spatial relationship between data. Also used to "map" one type of
+                            representation into another. Example is location maps, network maps and pixel representation
+                            of an image.</td>
+                        <td>Typically spatial data. Also used on data that can be represented in another form.</td>
+                        <td>Very good for dimensional reduction and spatial re-representation</td>
+                    </tr>
+                    <tr>
+                        <td>Tables</td>
+                        <td>This is typically used for comparisons such as this table. Is best used for text based data
+                            and is used more for looking up relationships rather than a descriptive summary of the
+                            dataset. This answer uses a table so we can locate the contrast and comparison easier (not
+                            done well though)</td>
+                        <td>Typically used to tabulate data that can be tabulated. <s>Sorry I had to</s></td>
+                        <td>A good data structure for looking up keys to values</td>
+                    </tr>
+                    <tr>
+                        <td>Graphs</td>
+                        <td>Graphical representation of data. If data can be tabulated, it usually can be plotted. Can
+                            be argued that maps are also a form of graph (if we consider graphs the same as charts).
+                            However, graphs is typically used to find mathematical relationships between the data and
+                            it's axis. Can be regression or other formulae (line of best fit, hyperplanes of best fit)
+                        </td>
+                        <td>Typically numerical data but can be most type of data that has a label(s)</td>
+                        <td>Suitable for grasping trends and patterns.</td>
+                    </tr>
+                </table>
+                </p>
             </fieldset>
             <fieldset id="Q5">
                 <legend>5. Data visualization is a graphical representation that contains the information and the data.
@@ -277,6 +448,49 @@
                     your own words why graphical representation could be more expressive than representing information
                     using
                     numbers? Give examples to supports your arguments. [8 marks]</legend>
+                <p>There is a saying, <strong>pictures paint a thousand words</strong>. This is because the human mind
+                    is extremely good at grasping patterns from sight. It is more intuitive to look at a picture than to
+                    imagine the same thing from a simple description. There is also a problem where individual
+                    interpretation of data varies from people to people.</p>
+                <p>For example:</p>
+                <p class="centered">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Ulam_Spiral_Divisors_100000.png"
+                        alt="the ulam spiral" class="fit" />
+                </p>
+                <p class="centered"><em>Ulam Spiral up to first 10,000<sup>th</sup> Prime Number</em></p>
+                <p>When we see this diagram we can see a clear crisscross pattern that is not noticable from just a list
+                    of {2,3,5,7,11,13,17,19,23...104729}</p>
+                <p>Although all phenomenon in this universe can be described using numbers one way or another. Be it
+                    physics equations, Fibonacci sequence, golden ratio and other beautiful equations, the human brain
+                    is just not suitable for interpreting numerical data as we have adapted to use our visual cortex.
+                    Our brain automatically interprets data in its own way and comes to the same result as using numbers
+                    for calculations. This is why we built computers to do complicated calculations and formed formulae
+                    and algorithms to determine complex relationships. Our brains simply cannot process numbers as
+                    easily as it does graphics.</p>
+                <p>However, not every data visualization is the same. Some perform better for a certain type of dataset
+                    than others. Which is also why there are so many types of data visualizations, ranging from
+                    informatics to charts. Everything depends on the data being represented. And as humans we are also
+                    more interested in moving representations for changing data and etc.</p>
+                <p>
+                    A simple example is a linear regression. When we see {1,2,3,4,5} we can assume that the next number
+                    is 7. But what with {0, 4.14, 8.28, 12.42, 20.6}. Just looking at it we cannot see the pattern but
+                    it is x=n(&pi;+1). If we plotted this on a line graph:
+                </p>
+                <p class="centered">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAbXktB4tWK6atm9gY05PClzdwq_wtQd6YoA&usqp=CAU"
+                        alt="straight line graph" class="fit" />
+                </p>
+                <p class="centered"><em>A generic straight line graph</em></p>
+                <p>We can intuitively see that it forms a straight line and thus can estimate what comes later.</p>
+                <p>The same comes when trying to interpret equations. For example, if we want to decide if D = log N/log
+                    S will converge or not it would be impossible just by seeing the number output. However, if we look
+                    at the visualization:</p>
+                <p class="centered">
+                    <img src="http://www.cs.cornell.edu/courses/cs212/1998sp/handouts/Fractals/sim04.gif"
+                        alt="a fractal" max-width="100%" />
+                </p>
+                <p>We can now see that the equation will not converge even though the numbers are seemingly getting
+                    closer together.</p>
             </fieldset>
             <fieldset id="Q6">
                 <legend>6. D3 stands for Data-Driven-Documents, D3 is a powerful data visualization tool by many.

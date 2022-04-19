@@ -1,4 +1,4 @@
-import {MnistData, IMAGE_H, IMAGE_W} from './data.js';
+import { MnistData, IMAGE_H, IMAGE_W } from './data.js';
 
 function createConvModel() {
   const model = tf.sequential();
@@ -6,26 +6,37 @@ function createConvModel() {
     inputShape: [IMAGE_H, IMAGE_W, 1],
     kernelSize: 3,
     filters: 16,
-    activation: 'relu'
+    activation: 'relu',
+    kernelInitializer: 'varianceScaling'
   }));
 
-  //model.add();
-  //model.add();
-  model.add(tf.layers.dense({units: 10, activation: 'softmax'}));
+  model.add(tf.layers.maxPooling2d({ poolSize: [2, 2], strides: [2, 2] }));
+  model.add(tf.layers.conv2d({
+    inputShape: [IMAGE_H, IMAGE_W, 1],
+    kernelSize: 3,
+    filters: 16,
+    activation: 'relu',
+    kernelInitializer: 'varianceScaling'
+  }));
+  model.add(tf.layers.maxPooling2d({ poolSize: [2, 2], strides: [2, 2] }));
+  model.add(tf.layers.flatten());
+  model.add(tf.layers.dense({
+    units: 10, kernelInitializer: 'varianceScaling', activation: 'softmax'
+  }));
   return model;
 }
 
 
 function createDenseModel() {
   const model = tf.sequential();
-  model.add(tf.layers.flatten({inputShape: [IMAGE_H, IMAGE_W, 1]}));
+  model.add(tf.layers.flatten({ inputShape: [IMAGE_H, IMAGE_W, 1] }));
   //model.add();
-  model.add(tf.layers.dense({units: 10, activation: 'softmax'}));
+  model.add(tf.layers.dense({ units: 10, activation: 'softmax' }));
   return model;
 }
 
 async function train(model, onIteration) {
-  //const optimizer = ...
+  const optimizer = "SGD"
   model.compile({
     optimizer,
     loss: 'categoricalCrossentropy',
@@ -34,15 +45,15 @@ async function train(model, onIteration) {
 
   const batchSize = 320;
   const validationSplit = 0.15;
-  const trainEpochs = 3;
+  const trainEpochs = 7;
   let trainBatchCount = 0;
 
   const trainData = data.getTrainData();
   const testData = data.getTestData();
 
   const totalNumBatches =
-      Math.ceil(trainData.xs.shape[0] * (1 - validationSplit) / batchSize) *
-      trainEpochs;
+    Math.ceil(trainData.xs.shape[0] * (1 - validationSplit) / batchSize) *
+    trainEpochs;
 
   let valAcc;
   await model.fit(trainData.xs, trainData.labels, {
@@ -53,8 +64,8 @@ async function train(model, onIteration) {
       onBatchEnd: async (batch, logs) => {
         trainBatchCount++;
         console.log(`Training... (` +
-            `${(trainBatchCount / totalNumBatches * 100).toFixed(1)}%` +
-            ` complete). To stop training, refresh or close page.`);
+          `${(trainBatchCount / totalNumBatches * 100).toFixed(1)}%` +
+          ` complete). To stop training, refresh or close page.`);
         //
         if (onIteration && batch % 10 === 0) {
           onIteration('onBatchEnd', batch, logs);
@@ -75,9 +86,9 @@ async function train(model, onIteration) {
   const testResult = model.evaluate(testData.xs, testData.labels);
   const testAccPercent = testResult[1].dataSync()[0] * 100;
   const finalValAccPercent = valAcc * 100;
-    console.log(
-      `Final validation accuracy: ${finalValAccPercent.toFixed(1)}%; ` +
-      `Final test accuracy: ${testAccPercent.toFixed(1)}%`);
+  console.log(
+    `Final validation accuracy: ${finalValAccPercent.toFixed(1)}%; ` +
+    `Final test accuracy: ${testAccPercent.toFixed(1)}%`);
 }
 
 async function showPredictions(model) {
@@ -94,13 +105,15 @@ async function showPredictions(model) {
 }
 
 
+
+
 let data;
 async function load() {
-    data = new MnistData();
-    await data.load();
-    const model = createModel();
-    model.summary();
-    await train(model, () => showPredictions(model));
+  data = new MnistData();
+  await data.load();
+  const model = createConvModel();
+  model.summary();
+  await train(model, () => showPredictions(model));
 }
 
 await load();
