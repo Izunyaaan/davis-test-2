@@ -497,17 +497,134 @@
                     Describe
                     three
                     salient features of D3 over traditional graphing tools. [6 marks]</legend>
+                <p>Let us first define what traditional graphing tools are. They are frameworks that allow users to
+                    choose from their available types of charts and takes in preprocessed input to visualize the data.
+                </p>
+                <p>While D3 can also do this, it does much much more. Here are some of the differences that I can see
+                    from briefly using D3</p>
+                <ol>
+                    <li>
+                        In D3, we can fit the visualization to the data rather than fitting the data to the
+                        visualization. This allows enormous flexibility in generating beautiful visualizations that
+                        would be difficult or even impossible in traditional graphing tools. For example, <a
+                            href="https://observablehq.com/@d3/mona-lisa-histogram">this</a> is impossible with
+                        traditional graphing tools.
+                    </li>
+                    <li>
+                        Unlike traditional tools, D3 does not have a specific feature. Meaning the process for building
+                        a table is the same as the process for building bubble charts and is also the same for any other
+                        types of visualization. This means the visualization depends on the user's own ideas and their
+                        own programming skills. D3 simply provides API functions to assist the user.<br>
+                        In simpler terms, a user can use D3 like they are painting on paper using pencil however they
+                        want while traditional tools only allows you to paint on paper using predetermined stamps which
+                        limits the user greatly.<br>
+                        D3 is simply a tool to turn data into graphics, and not a framework or library for generating
+                        preset graphs.
+                    </li>
+                    <li>
+                        D3 uses the web standards meaning integration with web pages is easy without needing the use of
+                        plugins or any other assistive technology. Something built with D3 will work fine on any modern
+                        web browser straight out the box. Although this is not unique to D3, it has such an amazing
+                        community, support and documentation it makes a clear difference compared to the other tools.
+                        Other tools like Plotly builds upon D3 to provide the traditional graphing tools "templates"
+                        which makes D3 that much more accessible.
+                    </li>
+                    <li>
+                        Just incase #1 and #2 are similar, the other advantage of D3 working using web standards is that
+                        it has direct DOM manipulation capabilities. Traditionally, visualization tools requires a user
+                        to create a canvas or specify a div and many other things in order to work. But D3's seamless
+                        DOM manipulation ability means the user is not limited in how they want to present their data
+                        and can even make their visualization interactive, animated and adapt to the end-user's devices.
+                    </li>
+                </ol>
             </fieldset>
             <fieldset id="Q7">
                 <legend>7. Explain ethical issues that may be of concerns when designing visualization e.g., concerns
                     regarding
                     genders, religions, races, or other dimensions that you can think of (open question). [7 marks]
                 </legend>
+                As mentioned in Q5, visualization works by stimulating the viewer's intuition. But this also means that
+                the viewer's observation will be affected by their own subjective values. Most of the time, a message is
+                delivered exactly as the creator, the creator's biases and values may be different to the viewers.
+                Especially if the visualization in a custom form of media such as infographics. But even before that,
+                some people perceive their surroundings differently from others. For example, I have very bad eyesight
+                and have red/green colour blindness. This means that I prefer a visualization that doesn't rely heavily
+                on colour and doesn't have too much little details as it takes longer for me to analyze the whole thing.
+                And as we know, if you can't attract in as little as 0.2 seconds, then interest is lost. This means the
+                visualization will not have a chance to deliver the information and data it wanted to.
+                <p>So the first consideration I think is accessibility. Luckily there are many authorities that have
+                    guidelines that can be followed to help make the visualization accessible. One example is the WCAG
+                    for web.</p>
+                <p>
+                    Next is the personal perception. Using the example of gender, males traditionally prefers action and
+                    so having an interactive visualization would cater to them more. But females typically are passive
+                    and so they might prefer a different type of visualization. From this we can see that making a
+                    visualization that is not traditional (such as graphs and maps) that delivers the information
+                    effectively to everyone is very hard. So the target demography is also quite important. Knowing this
+                    in advance can help create a better visualization. Especially in today's society where even my
+                    statement of males and females being active vs passive could be considered offensive and sexist.
+                </p>
+                <p>
+                    This also leads to another issue which is the societal norms. We in Brunei would not have been too
+                    offended by the gender differentiation, but a country like America would have tried to sue me
+                    already.
+                </p>
+                <p>
+                    The modern society is no longer as religiously sensitive. However this is not everyone. Some are
+                    still very defensive about their religion and do not like religious symbolism. For muslims, we
+                    cannot place quranic verses (in arabic) onto media that would be taken into unclean places such as
+                    the toilet. So an infographic that tells people to wash their hands and contains a quranic verse
+                    that may say "stay clean for cleanliness is one step closer to heaven" might be very compelling. But
+                    if it is placed in a toilet to remind people to wash their hands then it is blasphemous thus making
+                    the infographic useless.
+                </p>
+                <p>
+                    Similarly, a portrait of the Buddha running on a treadmill in the Gym might be offensive to
+                    buddhist. Thus the creator needs to again understand their target audience and empathize with their
+                    values.
+                </p>
+                <p>
+                    Colour also plays a very important role not only for disability accessibility, but also because of
+                    the psychological effect colours invoke. Red and Yellow makes us hungry. Thus the famous Mc Donald
+                    archers. Or this may be because of Mc Donald I'm not sure. Purple gives a sense of grandeur because
+                    it is such a rare colour in nature. So making sure the information matches the correct colour is
+                    vital. A green STOP sign <strong>WILL</strong> cause accidents.
+                </p>
+                <p>
+                    I've also mentioned about traditional visualization tools such as graphs and charts. These can be
+                    abused to misrepresent a dataset to fit whatever the creator wants it to show. This is a
+                    particularly hot ethical issue because it called into question the validity of evidence.
+                </p>
+                <p>
+                    Some type of data is sensitive to some races. African Americans may find it offensive to see data
+                    about slavery for example. In today's society, this is less of an issue but racism still exists and
+                    so is a potential ethical issue.
+                </p>
+                <p>
+                    One big tool in visualization is symbolism. As mentioned in the lecture, a portraits used to be more
+                    symbolic. An issue that can arise from using symbolism is not just all the above (religion, races,
+                    gender) but even misrepresentation. Different time periods have different ways of interpreting what
+                    they see. This is due to enviromental factors and the common sense of the era. Thus, using outdated
+                    symbolism can be misleading and even give rise to ethical issues. For example, if a court jester is
+                    standing closer to the artist point of view then he will be larger than a king sitting further away.
+                    But from an ancient intepretation where size equal authority, this type of illustration implies a
+                    jester has more authority than a king. Obviously the artist will be losing his head after he
+                    finished painting that. So to create a visualization that will endure through the ages is difficult.
+                    Conventions may change but it's still better to follow the current conventions.
+                </p>
+                <p>
+                    Misrepresentation is a big ethical dilemma due to how our society works. Liability is an issue that
+                    is hard to handle. If we make a visualization that caused a misunderstanding that created damage,
+                    are we liable for that? As such the creator needs to be ethically bound to represent their data as
+                    intended and not to be misleading.
+                </p>
             </fieldset>
         </article>
         <footer class="centered">
             <strong>Written By:</strong> <u>Faiz 'Izunyan' Sufrikhan</u><br>
             <strong>Written For:</strong> <u>Dr. Somnuk Phon-Amnuaisuk</u><br>
+            <strong>Repository:</strong> <a href="https://github.com/Izunyaaan/davis-test-2"><u>GitHub</u></a><br>
+            <strong>Hosted on:</strong> <a href="davis-test-2.netlify.app">Netlify</a>
             <strong>Written On:</strong> <u>19<sup>th</sup> April 2022</u>
         </footer>
     </body>
