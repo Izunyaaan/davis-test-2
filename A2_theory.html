@@ -73,6 +73,15 @@
 
             .references {
                 font-style: italic;
+                outline: 1px solid black;
+                padding: 1rem;
+                background-color: rgba(112, 128, 144, 0.462);
+                color: black;
+                font-weight: bolder;
+            }
+
+            .references a {
+                color: black;
             }
 
             nav a {
@@ -94,6 +103,10 @@
                 background-color: rgba(240, 248, 255, 0.407);
                 color: black;
                 font-weight: bolder;
+            }
+
+            .fit {
+                width: 100%;
             }
         </style>
     </head>
@@ -152,34 +165,88 @@
                 </p>
                 <p class="centered">
                     <img src="https://cdn.corporatefinanceinstitute.com/assets/bagging.png"
-                        alt="Chart illustrating how bagging works" />
+                        alt="Chart illustrating how bagging works" class="fit" />
                 </p>
                 <p class="centered">
                     <em>This image illustrates how bagging works.</em>
                 </p>
-                <p class="references">
-                    References:
-                </p>
-                <ul class="references">
-                    <li>Lecture notes</li>
-                    <li><a
-                            href="https://corporatefinanceinstitute.com/resources/knowledge/other/bagging-bootstrap-aggregation/">CFI</a>
-                    </li>
-                    <li><a
-                            href="https://towardsdatascience.com/ensemble-methods-bagging-boosting-and-stacking-c9214a10a205">Rocca
-                            J. (2019)</a></li>
-                    <li><a
-                            href="https://www.ibm.com/cloud/learn/bagging#:~:text=Bagging%2C%20also%20known%20as%20bootstrap,be%20chosen%20more%20than%20once.">IBM</a>
-                    </li>
-                    <li><a href="https://www.youtube.com/watch?v=RtrBtAKwcxQ">codebasics</a></li>
-                </ul>
+                <div class="references">
+                    <p>
+                        References:
+                    </p>
+                    <ul>
+                        <li>Lecture notes</li>
+                        <li><a
+                                href="https://corporatefinanceinstitute.com/resources/knowledge/other/bagging-bootstrap-aggregation/">CFI</a>
+                        </li>
+                        <li><a
+                                href="https://towardsdatascience.com/ensemble-methods-bagging-boosting-and-stacking-c9214a10a205">Rocca
+                                J. (2019)</a></li>
+                        <li><a
+                                href="https://www.ibm.com/cloud/learn/bagging#:~:text=Bagging%2C%20also%20known%20as%20bootstrap,be%20chosen%20more%20than%20once.">IBM</a>
+                        </li>
+                        <li><a href="https://www.youtube.com/watch?v=RtrBtAKwcxQ">codebasics</a></li>
+                    </ul>
+                </div>
 
             </fieldset>
             <fieldset id="Q2">
                 <legend>2. Describe the 'Adaboost' technique. [7 marks]</legend>
-                AdaBoost, which is short for Adaptive Boosting, is another ensemble learning technique. It is based on
-                the boosting algorithm which is widely used for solving binary classification problems apparently.
-                Boosting was first presented in 1997 by Freund and Schapire.
+                <p>
+                    AdaBoost, which is short for Adaptive Boosting, is another ensemble learning technique. It is based
+                    on the boosting algorithm which is widely used for solving binary classification problems
+                    apparently.
+                    Boosting was first presented in 1997 by Freund and Schapire.
+                </p>
+                <p>
+                    Boosting is basically building models repeatedly, each repetition boosting the accuracy of the next
+                    model (thus the name), until the final model gives a satisfactory result. This sounds like it would
+                    cause overfitting, but by being careful and employing techniques such as cross validation, using
+                    small learning rates and others.
+                </p>
+                <p>
+                    The AdaBoost algorithm works by assigning weights to data points. On the first run, all data points
+                    have equal weights. This is then fed into a model and once we get an output, the weights of the data
+                    points that were misclassified are increased. This affectively means that these points have a higher
+                    importance when fed into the next model. By adapting these weights to perform the boosting is why
+                    this technique is called Adaptive Boosting.
+                </p>
+                <p>
+                    The final step is to make a final model using the weighted average of the individual models.
+                </p>
+                <p class="centered">
+                    <img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2021/03/Screenshot-from-2021-03-26-07-45-11.png"
+                        alt="how average weighting works" class="fit" />
+                </p>
+                <p class="centered"><em>This image illustrates how the weighted average is found.</em></p>
+                <p>The blue shaded area shows the misclassified data points. And we can see the final decision boundary
+                    is an average we get from combining all three models.</p>
+                <p>
+                    According to Saini, A. (2021), AdaBoost is typically used with decision trees with only one split
+                    called <strong>Decision Stump</strong>/
+                </p>
+                <p class="centered">
+                    <img src="https://editor.analyticsvidhya.com/uploads/159381.png" alt="illustrate how adaboost works"
+                        class="fit" />
+                </p>
+                <p class="centered">
+                    <em>An image illustrating how AdaBoost works</em>
+                </p>
+                <div class="references">
+                    <p>References:</p>
+                    <ul>
+                        <li>Lecture Notes</li>
+                        <li><a
+                                href="https://www.analyticsvidhya.com/blog/2021/09/adaboost-algorithm-a-complete-guide-for-beginners/">Saini.
+                                A. (2019)</a></li>
+                        <li><a
+                                href="https://www.analyticsvidhya.com/blog/2021/03/introduction-to-adaboost-algorithm-with-python-implementation/">shipra_saxenna
+                                (2021)</a></li>
+                        <li><a
+                                href="https://stats.stackexchange.com/questions/20714/does-ensembling-boosting-cause-overfitting#:~:text=All%20machine%20learning%20algorithms%2C%20boosting,any%20algorithm%20that%20you%20apply.">Parkes.
+                                S. (2012)</a></li>
+                    </ul>
+                </div>
             </fieldset>
             <ol>
                 <li></li>
