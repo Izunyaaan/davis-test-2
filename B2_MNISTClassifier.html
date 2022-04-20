@@ -3,32 +3,408 @@
 
     <head>
         <meta charset="UTF-8">
+        <meta name="description" content="DAVIS Test 2 Part B">
+        <meta name="author" content="Faiz 'Izunyan' Sufrikhan">
         <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.0.0/dist/tf.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis"></script>
-        <title>Model Answer Part B2</title>
+        <title>Faiz Answers for DAVIS Test 2 Part B</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            html,
+            body {
+                padding: 0;
+                margin: 0;
+                height: 100vh;
+            }
+
+            body {
+                background-color: black;
+                color: aliceblue;
+                margin-inline: auto;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                box-sizing: border-box;
+                justify-content: space-around;
+            }
+
+            header {
+                width: 100vw;
+                margin-bottom: 1rem;
+            }
+
+            nav {
+                width: 22vw;
+                position: fixed;
+                top: 4rem;
+                left: 0.5vw;
+            }
+
+            article {
+                margin-left: 23vw;
+                width: 75vw;
+            }
+
+            footer {
+                margin-top: 1rem;
+                border-top: 0.4ch solid wheat;
+                width: 100vw;
+                padding: 1rem;
+            }
+
+            footer a {
+                color: aliceblue;
+            }
+
+            fieldset,
+            #Q0 {
+                background-color: whitesmoke;
+                color: black;
+                margin-bottom: 3rem;
+            }
+
+            fieldset {
+                min-height: 100vh;
+            }
+
+            legend {
+                background-color: aliceblue;
+                outline: 1px solid black;
+            }
+
+            .centered {
+                text-align: center;
+            }
+
+            .references {
+                font-style: italic;
+                outline: 1px solid black;
+                padding: 1rem;
+                background-color: rgba(112, 128, 144, 0.462);
+                color: black;
+                font-weight: bolder;
+            }
+
+            .references a {
+                color: black;
+            }
+
+            nav a {
+                color: whitesmoke;
+                display: block;
+                outline: 1px solid white;
+                padding: 0.3rem;
+                border-left: 0.5ch solid wheat;
+            }
+
+            nav a:hover {
+                background-color: rgba(240, 248, 255, 0.407);
+                color: black;
+                font-weight: bolder;
+            }
+
+            .activeLink {
+
+                background-color: rgba(240, 248, 255, 0.407);
+                color: black;
+                font-weight: bolder;
+            }
+
+            .fit {
+                width: 86%;
+                outline: black 1px solid;
+            }
+
+            td {
+                outline: 1px solid black;
+            }
+
+            .head {
+                display: block;
+                width: 100%;
+                padding: 1rem;
+
+            }
+
+            .tail {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.2s ease-out;
+                padding: 0 1rem;
+            }
+
+            .outlined {
+                outline: 1px solid black;
+                font-family: 'Courier New', Courier, monospace;
+                padding: 1rem;
+                width: fit-content;
+                overflow: auto;
+                margin: auto;
+                background-color: rgb(50, 50, 50);
+                color: aliceblue;
+            }
+
+            button {
+                width: max(120px, 30vw);
+                height: 3rem;
+                margin: auto;
+                display: block;
+            }
+        </style>
     </head>
 
     <body>
-        <h3>Part B2: MNIST Classifier (50 marks)</h3>
+        <header class="centered">
+            <h1>Part B2: MNIST Classifier (50 marks)</h1>
+        </header>
 
-        <h4>Tasks</h4>
-        <ul>
-            <li>Build your solution from the provided code</li>
-            <li>Discuss the following information of your MNIST Classifier
-                <ul>
-                    <li>Discuss the network design</li>
-                    <li>Discuss the selection of network parameters for training e.g., optimizer, loss, etc. </li>
-                    <li>Report the accuracy of the training/validation and testing process.</li>
-                    <li>Provide critical discussion on results comparison among different models and parameters (open
-                        questions)</li>
-                </ul>
-            </li>
-        </ul>
-        <img src="B2a.png" width=700>
+        <nav>
+            <p><a href="/index.html"><i class="fa fa-home"></i>Back to Home</a></p>
+            <p><a href="#Q0" class="nav">Tasks</a></p>
+            <p><a href="#Q1" class="nav">Question 1 ANN</a></p>
+            <p><a href="#Q2" class="nav">Question 2 CNN</a></p>
+            <p><a href="#Q3" class="nav">Question 3 CNN with Dropout</a></p>
+            <p><a href="#Q4" class="nav">General Discussion</a></p>
+        </nav>
+        <article>
+            <div id="Q0" class="answer">
+                <button class="collapsible head">Tasks &#9660;</button>
+                <div class="collapsible tail">
+                    <ul></ul>
+                    <li>Build your solution from the provided code</li>
+                    <li>Discuss the following information of your MNIST Classifier
+                        <ul>
+                            <li>Discuss the network design</li>
+                            <li>Discuss the selection of network parameters for training e.g., optimizer, loss, etc.
+                            </li>
+                            <li>Report the accuracy of the training/validation and testing process.</li>
+                            <li>Provide critical discussion on results comparison among different models and parameters
+                                (open
+                                questions)</li>
+                        </ul>
+                    </li>
+                    </ul>
+                    <p class="centered"><img src="B2a.png" alt="our tasks, should we choose to accept" class="fit"></p>
+                </div>
+
+            </div>
+            <fieldset id="Q1" class="answer">
+                <legend>
+                    <p>Question 1 ANN</p>
+                </legend>
+
+                <p>I chose to build an ANN of 784:200:10 which can be found in faiz_codes.js function "createDenseModel"
+                </p>
+                <p>data.js already loaded and parsed the MNIST dataset (thank you sir!). It loaded a total of 65,000
+                    images and split 55,000 images as the training set and 10,000 as the test set.</p>
+                <p>I chose the 784:200:10 because although ideally I should pick a number higher than 784, the training
+                    time will take too long even on 3 epochs. So I tried increments of 100 from 100 to 800 and found
+                    that 200 gave an okay result without taking too long. That said it's still in the 80 ish percent
+                    accuracy but this can be improved simply by raising the epoch to 7 which introduces another problem,
+                    namely lack of GPU memory which will cause webGL to crash thus automatically cleaning the memory
+                    losing all progress of the training.</p>
+                <p>The model summary:</p>
+                <div class="outlined">
+                    <p>_________________________________________________________________</p>
+                    <p>Layer (type) Output shape Param #</p>
+                    <p>=================================================================</p>
+                    <p>flatten_Flatten1 (Flatten) [null,784] 0</p>
+                    <p>_________________________________________________________________</p>
+                    <p>dense_Dense1 (Dense) [null,200] 157000</p>
+                    <p>_________________________________________________________________</p>
+                    <p>dense_Dense2 (Dense) [null,10] 2010</p>
+                    <p>=================================================================</p>
+                    <p>Total params: 159010</p>
+                    <p>Trainable params: 159010</p>
+                    <p>Non-trainable params: 0</p>
+                    <p>_________________________________________________________________</p>
+                </div>
+                <p>Because the training and evaluating process is quite resource heavy, I did not make it automatically
+                    start. Please press the button below to start the training process.</p>
+                <button id="denseModelBtn">Train Dense Model (ANN)</button>
+                <p id="denseProgress" class="outlined"></p>
+            </fieldset>
+            <fieldset id="Q2" class="answer">
+                <legend>Question 2 CNN</legend>
+
+                <p>The CNN follows the recommended Conv2d-Max Pooling 2D-Conv2D-Max Pooling 2D-Dense Layer which can be
+                    found in faiz_codes.js function "createConvModel"</p>
+                <p>For the Conv2D layers:</p>
+                <p>
+                    I chose to keep the kernel size to 3x3 cause as mentioned in class, it was found that even with a
+                    small filter, if we have many filters the performance will be the same as using a bigger filter with
+                    the advantage of being faster and more efficient
+
+                </p>
+                <p>I kept 16 filters because I trust that these are sufficient for MNIST dataset which are quite small.
+                    Ofcourse ideally I would use 32 but am limited by my available hardware.</p>
+                <p>
+                    We use Max Pooling because it is proven to produce good results for MNIST datasets. And 2x2 in
+                    strides of 2x2 for the same reason.
+                </p>
+                <p>
+                    I've added a kernel initializer because it would have helped improve performance if the input wasn't
+                    normalized from 0-255 into 0-1. Even though this step is already done in data.js, I kept the kernel
+                    initializer to make the codes reusable.
+                </p>
+                <p>I used RELU as the activation for the hidden layers because it seems to yield good results compared
+                    to sigmoid. This seems to be because the linear bit of ReLu makes the back propagation if the errors
+                    have a predictable gradient. And the output layer uses softmax because it is suitable for
+                    classification and seems to
+                    be standard in the vanilla CNN network's dense layer.</p>
+                <p>The model summary is:</p>
+                <div class="outlined">
+                    <p>_________________________________________________________________</p>
+                    <p>Layer (type) Output shape Param #</p>
+                    <p>=================================================================</p>
+                    <p>conv2d_Conv2D1 (Conv2D) [null,26,26,16] 160</p>
+                    <p>_________________________________________________________________</p>
+                    <p>max_pooling2d_MaxPooling2D1 [null,13,13,16] 0</p>
+                    <p>_________________________________________________________________</p>
+                    <p>conv2d_Conv2D2 (Conv2D) [null,11,11,16] 2320</p>
+                    <p>_________________________________________________________________</p>
+                    <p>max_pooling2d_MaxPooling2D2 [null,5,5,16] 0</p>
+                    <p>_________________________________________________________________</p>
+                    <p>flatten_Flatten1 (Flatten) [null,400] 0</p>
+                    <p>_________________________________________________________________</p>
+                    <p>dense_Dense1 (Dense) [null,10] 4010</p>
+                    <p>=================================================================</p>
+                    <p>Total params: 6490</p>
+                    <p>Trainable params: 6490</p>
+                    <p>Non-trainable params: 0</p>
+                    <p>_________________________________________________________________</p>
+                </div>
+                <p>Because the training and evaluating process is quite resource heavy, I did not make it automatically
+                    start. Please press the button below to start the training process.</p>
+
+                <button id="convModelBtn">Train CNN</button>
+                <p id="convProgress" class="outlined"></p>
+            </fieldset>
+            <fieldset id="Q3" class="answer">
+                <legend>Question 3 CNN w/ Dropout</legend>
+                <p>For my own architecture I will incorporate dropout as <a
+                        href="https://www.baeldung.com/cs/ml-relu-dropout-layers">this article</a> shows that dropout
+                    can help reduce overfitting. We did not plot the loss/accuracy charts for this test, but in a
+                    previous module CNN doesn't seem to have an overfitting problem. However, I'd still like to try
+                    using dropouts. I will use the architecture suggested in the article which is:</p>
+                <p class="centered">
+                    <img src="https://www.baeldung.com/wp-content/uploads/sites/4/2020/05/Blank-Diagram1.svg"
+                        alt="Typical CNN with dropout architecture" class="fit" />
+                </p>
+                <p>I've selected a dropout rate of 16.9%</p>
+
+                <p>Because the training and evaluating process is quite resource heavy, I did not make it automatically
+                    start. Please press the button below to start the training process.</p>
+                <button id="convDropModelBtn">Train CNN with Dropout</button>
+                <p id="convDropProgress" class="outlined"></p>
+                <p>Surprisingly, CNN with dropout performs better than normal CNN, and it runs faster too. It is on par
+                    with a normal single layer dense neural network in terms of speed but it is definitely more
+                    accurate. From the limited testing, it would seem that CNN with Dropout outperforms both of the NNs.
+                </p>
+            </fieldset>
+            <fieldset id="Q4" class="answer">
+                <legend>General Discussion</legend>
+                <p>Because of the nature of the provided codes, all three neural networks are trained using the same
+                    optimizer. I chose to use SGD on default settings (<a
+                        href="https://github.com/tensorflow/tfjs/blob/tfjs-v3.15.0/tfjs-core/src/optimizers/optimizer_constructors.ts#L64-L66">learning
+                        rate of 0.01</a>)</p>
+                <p>The reason I chose SGD rather than ADAM despite what I read <a
+                        href="https://medium.com/geekculture/a-2021-guide-to-improving-cnns-optimizers-adam-vs-sgd-495848ac6008#:~:text=One%20interesting%20and%20dominant%20argument,results%20in%20improved%20final%20performance.">here</a>
+                    saying that ADAM is actually better than SGD. However, is comes with the condition that the ADAM
+                    optimizer is fine tuned. I do not have the confidence to try this yet so I will be sticking with SGD
+                    which tends to be overall more "stable"</p>
+                <p>When I trained my models, I found that the single layer NN runs faster than CNN by about 3 minutes.
+                    It is more or less the same time as CNN with Dropout. However, its test accuracy is only 82% while
+                    CNN is 86% and CNN with dropout gave 90%.</p>
+                <p>
+                    In my mind CNN with dropout outperforms the other two splendidly. However, due to the random nature
+                    of assigning the initial weights (I did not set a random seed), another run may give a different
+                    result, but I expect CNN and CNN with dropout to always be more accurate than a normal dense NN.
+                </p>
+                <p>
+                    But this question doesn't seem to limit to the 3 models built in this test, so I will also include
+                    my findings and thoughts that occurred during the lecture and other practicals.
+                </p>
+                <p>
+                    I noticed that K-NN had a very close accuracy to a normal dense NN and CNNs outperformed everything
+                    else. However, the gap is quite small, with a range of about 7%. I am aware of the fallacy where
+                    probabilities may not be straightforward so I do not yet know the magnitude these 7% have to
+                    practical use. But if 7% is actually insignificant, I would have said that an MLP would be best to
+                    use for this application as not once during the runtime I got a message about GPU memory being used
+                    too much.
+                </p>
+                <p>
+                    This is very surprising though because CNNs have less parameters than even a single layered dense
+                    NN. And I imagine adding more layers to the dense NN would also slow it down. Which is why I am
+                    sticking to the general idea that CNN is more suited for image recognition.
+                </p>
+                <p>
+                    Even though adding more layers and epochs will improve the trained model performance of a dense NN,
+                    this is the same for CNN. And we have proved that by simply adding dropout, a single
+                    conv2d-maxpooling outperformed conv2d-maxpooling-conv2d-maxpooling. And due to the small number of
+                    parameters, the trained model will also be faster than a dense NN. This further enforces the idea
+                    that CNN is best for image recognition.
+                </p>
+                <p>
+                    One last thought though, if adding dropout can improve the performance, then the other advanced
+                    techniques such as layer skipping and different configuration of the CNN will be able to push the
+                    performance (both training time and run time of saved models) even more.
+                </p>
+            </fieldset>
+        </article>
+
+
+
+        <footer class="centered">
+            <strong>Written By:</strong> <u>Faiz 'Izunyan' Sufrikhan</u><br>
+            <strong>Written For:</strong> <u>Dr. Somnuk Phon-Amnuaisuk</u><br>
+            <strong>Repository:</strong> <a href="https://github.com/Izunyaaan/davis-test-2"><u>GitHub</u></a><br>
+            <strong>Hosted on:</strong> <a href="davis-test-2.netlify.app">Netlify</a><br>
+            <strong>Written On:</strong> <u>19<sup>th</sup> April 2022</u>
+        </footer>
+
+        <!-- Page animations-->
+        <script>
+            answers = document.querySelectorAll('.answer');
+            links = document.querySelectorAll('.nav');
+            collapsible = document.querySelectorAll('.collapsible')
+            const collapse = () => {
+                if (collapsible[1].style.maxHeight) {
+                    collapsible[1].style.maxHeight = null;
+                    collapsible[0].innerText = "Tasks ▼"
+                } else {
+                    collapsible[1].style.maxHeight = collapsible[1].scrollHeight + "px";
+                    collapsible[0].innerText = "Tasks ▲"
+                }
+            }
+
+            collapsible[0].addEventListener('click', collapse)
+
+            window.onscroll = () => {
+                let current = ""
+
+                answers.forEach((answer, index) => {
+                    const answerTop = answer.offsetTop
+                    if (pageYOffset >= answerTop - 20) {
+                        current = index
+                    }
+                });
+
+                links.forEach((link, index) => {
+                    link.classList.remove("activeLink")
+                    if (index == current) {
+                        link.classList.add("activeLink")
+                    }
+                });
+            }
+        </script>
 
         <!-- Import the script file -->
         <script src="data.js" type="module"></script>
-        <script src="yourcode.js" type="module"></script>
+        <script src="faiz_codes.js" type="module"></script>
+
+
 
     </body>
 

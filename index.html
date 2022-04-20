@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="author" content="Faiz 'Izunyan' Sufrikhan">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Landing Page Davis Test 2</title>
+        <title>Landing Page Faiz Davis Test 2</title>
         <style>
             html,
             body {
@@ -21,16 +21,78 @@
 
             body {
                 background-color: black;
+                color: aliceblue;
                 width: 85vw;
-                min-height: 100vw;
+                min-height: 100vh;
                 margin: auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
 
+            header,
+            section,
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+            }
+
+            header {
+                border-bottom: 0.5ch groove wheat;
+            }
+
+            section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+
+            footer {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                width: 85vw;
+                outline: white 1px solid;
+            }
+
+            a {
+                margin: 1ch;
+                border: 2px aliceblue groove;
+                padding: 1rem;
+                font-size: x-large;
+                color: aliceblue;
+                text-decoration: none;
+                font-weight: bold;
+                background-color: rgb(52, 53, 55);
+                width: max(250px, 30vw);
+                text-align: center;
+            }
+
+            a:hover {
+                background-color: rgba(240, 248, 255, 0.537);
+                color: black;
             }
         </style>
     </head>
 
     <body>
-        <a href="/A2_theory.html">Theory Answers</a>
+        <header>
+            <h1>DAVIS Test 2 Answers</h1>
+        </header>
+        <section>
+            <h2>Written By: Faiz 'Izunyan' Sufrikhan</h2>
+            <h2>Written For: Dr. Somnuk Phon-Amnuaisuk</h2>
+            <h3>Written On: 20<sup>th</sup> April 2022</h3>
+        </section>
+        <nav>
+            <a href="/A2_theory.html">Theory Answers</a>
+            <a href="/B2_MNISTClassifier.html">Practical Section</a>
+        </nav>
+        <footer>
+            <strong>Repository:</strong> <a href="">Github</a>
+            <strong>Hosted on:</strong> <a href="">Netlify</a>
+        </footer>
     </body>
 
 </html>
